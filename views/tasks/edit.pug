@@ -1,0 +1,9 @@
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Tareas
+    body
+        form(action=`/tasks/${task.id}?_method=PUT` method="POST")
+            textarea(name="description", placeholder="Coloca aqui el pendiente a realizar")= task.description
+            input(type="submit" value="Guardar")
