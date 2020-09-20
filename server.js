@@ -10,6 +10,7 @@ const app = express();
 const tasksRoutes = require('./routes/tasks_routes');
 const sessionsRoutes = require('./routes/sessions_routes');
 const registrationsRoutes = require('./routes/registrations_routes');
+const categoriesRoutes = require('./routes/categories_routes')
 
 const findUserMiddleware = require('./middlewares/find_user');
 const authUser = require('./middlewares/auth_user');
@@ -30,6 +31,7 @@ app.use(authUser);
 app.use(tasksRoutes);
 app.use(sessionsRoutes);
 app.use(registrationsRoutes);
+app.use(categoriesRoutes);
 // let db = new sqlite3.Database('proyecto-backend');
 
 app.get('/', function(req,res){
