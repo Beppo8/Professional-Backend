@@ -1,4 +1,5 @@
 'use strict';
+const socket = require('../realtime/client');
 const {
   Model
 } = require('sequelize');
@@ -17,6 +18,10 @@ module.exports = (sequelize, DataTypes) => {
       Task.belongsToMany(models.Category,{
         through: 'TaskCategories',
         as: 'categories'
+      })
+
+      Task.afterCreate(function(task,options){
+        socket.emit('new_task',task)
       })
     }
   };
